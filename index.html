@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Let's make a healthy food! - Nazanin Hesamzadeh</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Advent+Pro&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				/* background: url("images/tablecloth-p.jpg"); */
+				font-family: "Advent Pro", sans-serif;
+			}
+			.game-title {
+				font-size: 43px;
+				text-align: center;
+				color: #fff;
+				text-shadow: 1px 1px grey;
+				background-color: #25a246;
+				margin: 0px -15px 13px;
+			}
+			img {
+				max-width: 180px;
+				max-height: 180px;
+				width: 30%;
+				height: auto;
+				margin: 3px 0px;
+			}
+			#div1 {
+				max-width: 585px;
+				height: 251px;
+				padding: 10px;
+				text-align: center;
+				background-image: url("images/plate.png");
+				background-size: contain;
+				background-position: bottom;
+				background-repeat: no-repeat;
+			}
+			#div1 img {
+				vertical-align: 0%;
+			}
+
+			.plate-tr {
+				min-height: 372px;
+			}
+			.chef {
+				height: 200px;
+				float: left;
+				width: 20%;
+			}
+			.chef img {
+				width: 100%;
+				max-width: 146px;
+				height: auto;
+			}
+			.message {
+				float: left;
+			}
+			.message-bar {
+				height: 56px;
+			}
+			#nutrition_needed {
+				background: #17a2b8;
+				border-radius: 50%;
+				padding: 26px;
+				text-align: center;
+				color: #fff;
+				font-size: 114%;
+				text-shadow: 1px 1px grey;
+			}
+			.footer {
+				background-color: #005900;
+				color: #fff;
+				text-align: center;
+			}
+			#spinner {
+				display: none !important;
+				color: #0dd3e7;
+			}
+		</style>
+		<script src="lib.js"></script>
+	</head>
+	<body onload="askNutrition()">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="game-title">Let's make a healthy food!</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-9 col-xs-12">
+					<div class="chef"><img src="images/chef.png" /></div>
+					<div class="message"><p id="nutrition_needed"></p></div>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<button
+						id="checkFinal"
+						onClick="checkFood()"
+						class="btn btn-success btn-ladda"
+						data-style="expand-left"
+					>
+						Check if food is ready
+					</button>
+					<!-- <input
+						type="button"
+						onClick="checkFood()"
+						class="btn btn-success btn-rounded"
+						value="Food is Ready!"
+					/> -->
+					<input
+						type="button"
+						onClick="javascript:location.reload();"
+						value="re-make!"
+						class="btn btn-info btn-rounded"
+					/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-xs-12"></div>
+				<div class="col-md-4 col-xs-12 message-bar">
+					<p id="message-bar"></p>
+				</div>
+				<div class="col-md-4 col-xs-12"></div>
+			</div>
+			<div class="row plate-tr">
+				<div class="col-md-6 col-xs-12">
+					<div
+						id="div1"
+						name="plate"
+						ondrop="drop(event , true)"
+						ondragover="allowDrop(event)"
+					></div>
+				</div>
+				<div
+					id="chefTable"
+					class="col-md-6 col-xs-12"
+					ondrop="drop(event , false)"
+					ondragover="allowDrop(event)"
+				>
+					<img
+						id="broccoli"
+						src="images/brocoli.png"
+						draggable="true"
+						ondragstart="drag(event)"
+					/>
+					<img
+						id="cereal"
+						src="images/cereal.png"
+						draggable="true"
+						ondragstart="drag(event)"
+					/>
+					<img
+						id="egg"
+						src="images/egg.png"
+						draggable="true"
+						ondragstart="drag(event)"
+					/>
+					<img
+						id="milk"
+						src="images/milk.png"
+						draggable="true"
+						ondragstart="drag(event)"
+					/>
+					<img
+						id="salmon"
+						src="images/salmon.png"
+						draggable="true"
+						ondragstart="drag(event)"
+					/>
+					<img
+						id="spinach"
+						src="images/spinach.png"
+						draggable="true"
+						ondragstart="drag(event)"
+					/>
+				</div>
+			</div>
+		</div>
+		<div class="footer">Developed by Nazanin Hesamzadeh &copy;2019</div>
+	</body>
+</html>
